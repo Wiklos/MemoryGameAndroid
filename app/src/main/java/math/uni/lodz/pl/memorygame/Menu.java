@@ -1,10 +1,12 @@
 package math.uni.lodz.pl.memorygame;
 
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.ImageView;
 
 public class Menu extends AppCompatActivity {
 
@@ -13,6 +15,7 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+     
     }
 
     public void gotoGameActivity(View view)
@@ -79,6 +82,8 @@ public class Menu extends AppCompatActivity {
         String stringCategory = secondCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
+        String order = "first";
+        intent.putExtra("ORDER", order );
         startActivity(intent);
     }
     public void zdjecie4(View view)
@@ -87,54 +92,69 @@ public class Menu extends AppCompatActivity {
         String stringCategory = secondCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
+        String order = "second";
+        intent.putExtra("ORDER", order );
         startActivity(intent);
     }
     public void zdjecie5(View view)
     {
-        AutoCompleteTextView secondCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
-        String stringCategory = secondCategory.getText().toString();
+        AutoCompleteTextView thirdCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView3);
+        String stringCategory = thirdCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
+        String order = "first";
+        intent.putExtra("ORDER", order );
         startActivity(intent);
     }
     public void zdjecie6(View view)
     {
-        AutoCompleteTextView secondCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
-        String stringCategory = secondCategory.getText().toString();
+        AutoCompleteTextView thirdCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView3);
+        String stringCategory = thirdCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
+        String order = "second";
+        intent.putExtra("ORDER", order );
         startActivity(intent);
     }
     public void zdjecie7(View view)
     {
-        AutoCompleteTextView secondCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
-        String stringCategory = secondCategory.getText().toString();
+        AutoCompleteTextView fourthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView4);
+        String stringCategory = fourthCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
+        String order = "first";
+        intent.putExtra("ORDER", order );
         startActivity(intent);
     }
     public void zdjecie8(View view)
     {
-        AutoCompleteTextView secondCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
-        String stringCategory = secondCategory.getText().toString();
+        AutoCompleteTextView fourthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView4);
+        String stringCategory = fourthCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
+        String order = "second";
+        intent.putExtra("ORDER", order );
+
         startActivity(intent);
     }
     public void zdjecie9(View view)
     {
-        AutoCompleteTextView secondCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
-        String stringCategory = secondCategory.getText().toString();
+        AutoCompleteTextView fifthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView5);
+        String stringCategory = fifthCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
+        String order = "first";
+        intent.putExtra("ORDER", order );
         startActivity(intent);
     }
     public void zdjecie10(View view)
     {
-        AutoCompleteTextView secondCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
-        String stringCategory = secondCategory.getText().toString();
+        AutoCompleteTextView fifthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView5);
+        String stringCategory = fifthCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
+        String order = "second";
+        intent.putExtra("ORDER", order );
         startActivity(intent);
     }
 }

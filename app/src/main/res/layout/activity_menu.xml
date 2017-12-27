@@ -117,7 +117,8 @@
         android:layout_marginTop="140dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:onClick="zdjecie4"/>
 
     <ImageButton
         android:id="@+id/imageButton5"
@@ -127,7 +128,8 @@
         android:layout_marginTop="220dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:onClick="zdjecie5"/>
 
     <ImageButton
         android:id="@+id/imageButton6"
@@ -137,7 +139,8 @@
         android:layout_marginTop="220dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:onClick="zdjecie6"/>
 
     <ImageButton
         android:id="@+id/imageButton7"
@@ -147,7 +150,8 @@
         android:layout_marginTop="296dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:onClick="zdjecie7"/>
 
     <ImageButton
         android:id="@+id/imageButton8"
@@ -157,7 +161,8 @@
         android:layout_marginTop="296dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:onClick="zdjecie8"/>
 
     <ImageButton
         android:id="@+id/imageButton9"
@@ -167,7 +172,8 @@
         android:layout_marginTop="372dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:onClick="zdjecie9"/>
 
     <ImageButton
         android:id="@+id/imageButton10"
@@ -177,6 +183,8 @@
         android:layout_marginTop="372dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@android:drawable/ic_input_add" />
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:onClick="zdjecie10"/>
+
 
 </android.support.constraint.ConstraintLayout>
