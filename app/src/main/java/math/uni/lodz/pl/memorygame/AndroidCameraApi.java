@@ -29,6 +29,7 @@ import android.util.SparseIntArray;
 import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -169,7 +170,23 @@ public class AndroidCameraApi extends AppCompatActivity {
             // Orientation
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
-            final File file = new File(Environment.getExternalStorageDirectory()+"/pic.jpg");
+            //creating new directory called Noga
+
+            //AutoCompleteTextView filenameFromTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+            //String filename = String.valueOf(filenameFromTextView.getEditableText());
+
+            String filename = getIntent().getStringExtra("FIRST_C");
+
+            String filenameMain = "MemoryGamePictures";
+            //String filename = "Noga";
+            File folder = new File(Environment.getExternalStorageDirectory() +
+                    File.separator + filenameMain + File.separator + filename);
+            boolean success = true;
+            if (!folder.exists()) {
+                success = folder.mkdirs();
+            }
+            final File file = new File(folder+"/pic.jpg");
+            //final File file = new File(Environment.getExternalStorageDirectory()+"/pic.jpg");
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
                 public void onImageAvailable(ImageReader reader) {
