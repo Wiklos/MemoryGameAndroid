@@ -6,25 +6,34 @@ import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import java.io.File;
 
 public class Menu extends AppCompatActivity {
     private ImageView capturedImageHolder;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        /* wyswietlanie zdjec
         ImageView mImageView;
         mImageView = findViewById(R.id.captured_image);
         String path =( Environment.getExternalStorageDirectory() +
                 File.separator + "MemoryGamePictures" + File.separator +"Noga"+ "/pic1.jpg");
         mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+        */
+
+
     }
 
     public void gotoGameActivity(View view)
@@ -166,6 +175,8 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("ORDER", order );
         startActivity(intent);
     }
+
+
 }
 
 
