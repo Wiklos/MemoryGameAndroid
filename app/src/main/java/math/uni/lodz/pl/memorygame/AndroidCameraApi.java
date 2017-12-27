@@ -42,6 +42,7 @@ import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 
 public class AndroidCameraApi extends AppCompatActivity {
@@ -186,7 +187,28 @@ public class AndroidCameraApi extends AppCompatActivity {
             if (!folder.exists()) {
                 success = folder.mkdirs();
             }
-            final File file = new File(folder+"/pic.jpg");
+            String FirstOrSecondPic = getIntent().getStringExtra("ORDER");
+
+            String FirstOrSecondPicText = FirstOrSecondPic.toString();
+            String FirstText = "first";
+            String SecondText = "second";
+
+            String nazwa;
+            if(FirstOrSecondPicText.equals(FirstText.toString()))
+            {
+                nazwa = "/pic1.jpg";
+                //Toast.makeText(getApplication(),nazwa, Toast.LENGTH_SHORT).show();
+                //final File file = new File(folder+"/pic.jpg");
+            }
+            //else if(FirstOrSecondPicText.equals(SecondText.toString()))
+            else
+            {
+                nazwa = "/pic2.jpg";
+                //Toast.makeText(getApplication(),nazwa, Toast.LENGTH_SHORT).show();
+                //final File file = new File(folder+"/pic2.jpg");
+            }
+
+            final File file = new File(folder+nazwa);
             //final File file = new File(Environment.getExternalStorageDirectory()+"/pic.jpg");
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override
