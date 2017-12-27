@@ -6,25 +6,34 @@ import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import java.io.File;
 
 public class Menu extends AppCompatActivity {
     private ImageView capturedImageHolder;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        /* wyswietlanie zdjec
         ImageView mImageView;
         mImageView = findViewById(R.id.captured_image);
         String path =( Environment.getExternalStorageDirectory() +
                 File.separator + "MemoryGamePictures" + File.separator +"Noga"+ "/pic1.jpg");
         mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+        */
+
+
     }
 
     public void gotoGameActivity(View view)
@@ -50,14 +59,11 @@ public class Menu extends AppCompatActivity {
         AutoCompleteTextView thirdCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView3);
         AutoCompleteTextView fourthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView4);
         AutoCompleteTextView fifthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView5);
-
-
         String firstC = firstCategory.getText().toString();
         String secondC = secondCategory.getText().toString();
         String thirdC = thirdCategory.getText().toString();
         String fourthC = fourthCategory.getText().toString();
         String firthC = fifthCategory.getText().toString();
-
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         // put the name and phone(to be sent to other activity) in intent
         intent.putExtra("FIRST_C", firstC );
@@ -166,6 +172,6 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("ORDER", order );
         startActivity(intent);
     }
+
+
 }
-
-
