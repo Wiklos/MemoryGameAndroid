@@ -1,21 +1,30 @@
 package math.uni.lodz.pl.memorygame;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 
+import java.io.File;
+
 public class Menu extends AppCompatActivity {
+    private ImageView capturedImageHolder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-     
+        ImageView mImageView;
+        mImageView = findViewById(R.id.captured_image);
+        String path =( Environment.getExternalStorageDirectory() +
+                File.separator + "MemoryGamePictures" + File.separator +"Noga"+ "/pic1.jpg");
+        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
     }
 
     public void gotoGameActivity(View view)
@@ -58,7 +67,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("FIFTH_C", firthC );
         startActivity(intent);
         */
-        AutoCompleteTextView firstCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
+        AutoCompleteTextView firstCategory = findViewById(R.id.autoCompleteTextView);
         String stringCategory = firstCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
@@ -68,7 +77,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie2(View view)
     {
-        AutoCompleteTextView firstCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
+        AutoCompleteTextView firstCategory = findViewById(R.id.autoCompleteTextView);
         String stringCategory = firstCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
@@ -78,7 +87,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie3(View view)
     {
-        AutoCompleteTextView secondCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
+        AutoCompleteTextView secondCategory = findViewById(R.id.autoCompleteTextView2);
         String stringCategory = secondCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
@@ -88,7 +97,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie4(View view)
     {
-        AutoCompleteTextView secondCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
+        AutoCompleteTextView secondCategory = findViewById(R.id.autoCompleteTextView2);
         String stringCategory = secondCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
@@ -98,7 +107,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie5(View view)
     {
-        AutoCompleteTextView thirdCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView3);
+        AutoCompleteTextView thirdCategory = findViewById(R.id.autoCompleteTextView3);
         String stringCategory = thirdCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
@@ -108,7 +117,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie6(View view)
     {
-        AutoCompleteTextView thirdCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView3);
+        AutoCompleteTextView thirdCategory = findViewById(R.id.autoCompleteTextView3);
         String stringCategory = thirdCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
@@ -118,7 +127,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie7(View view)
     {
-        AutoCompleteTextView fourthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView4);
+        AutoCompleteTextView fourthCategory = findViewById(R.id.autoCompleteTextView4);
         String stringCategory = fourthCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
@@ -128,7 +137,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie8(View view)
     {
-        AutoCompleteTextView fourthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView4);
+        AutoCompleteTextView fourthCategory = findViewById(R.id.autoCompleteTextView4);
         String stringCategory = fourthCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
@@ -139,7 +148,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie9(View view)
     {
-        AutoCompleteTextView fifthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView5);
+        AutoCompleteTextView fifthCategory = findViewById(R.id.autoCompleteTextView5);
         String stringCategory = fifthCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
@@ -149,7 +158,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie10(View view)
     {
-        AutoCompleteTextView fifthCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView5);
+        AutoCompleteTextView fifthCategory = findViewById(R.id.autoCompleteTextView5);
         String stringCategory = fifthCategory.getText().toString();
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         intent.putExtra("CATEGORY", stringCategory );
