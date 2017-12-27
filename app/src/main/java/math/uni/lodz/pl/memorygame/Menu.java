@@ -41,10 +41,34 @@ public class Menu extends AppCompatActivity {
 
 
         String firstC = firstCategory.getText().toString();
+        String secondC = secondCategory.getText().toString();
+        String thirdC = thirdCategory.getText().toString();
+        String fourthC = fourthCategory.getText().toString();
+        String firthC = fifthCategory.getText().toString();
 
         Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
         // put the name and phone(to be sent to other activity) in intent
         intent.putExtra("FIRST_C", firstC );
+        intent.putExtra("SECOND_C", secondC );
+        intent.putExtra("THIRD_C", thirdC );
+        intent.putExtra("FOURTH_C", fourthC );
+        intent.putExtra("FIFTH_C", firthC );
+        startActivity(intent);
+    }
+    public void zdjecie2(View view)
+    {
+        AutoCompleteTextView firstCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
+        String stringCategory = firstCategory.getText().toString();
+        Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
+        intent.putExtra("CATEGORY", stringCategory );
+        startActivity(intent);
+    }
+    public void zdjecie3(View view)
+    {
+        AutoCompleteTextView secondCategory = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView2);
+        String stringCategory = secondCategory.getText().toString();
+        Intent intent = new Intent(getApplicationContext(),AndroidCameraApi.class);
+        intent.putExtra("CATEGORY", stringCategory );
         startActivity(intent);
     }
 }

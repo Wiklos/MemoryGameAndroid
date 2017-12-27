@@ -175,7 +175,8 @@ public class AndroidCameraApi extends AppCompatActivity {
             //AutoCompleteTextView filenameFromTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
             //String filename = String.valueOf(filenameFromTextView.getEditableText());
 
-            String filename = getIntent().getStringExtra("FIRST_C");
+            //String filename = getIntent().getStringExtra("FIRST_C");
+            String filename = getIntent().getStringExtra("CATEGORY");
 
             String filenameMain = "MemoryGamePictures";
             //String filename = "Noga";
