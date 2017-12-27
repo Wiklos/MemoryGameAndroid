@@ -19,7 +19,7 @@ public class Menu extends AppCompatActivity {
     }
     public void zdjecie1(View view)
     {
-        startActivity(new Intent(getApplicationContext(), GameMain.class));
+        startActivity(new Intent(getApplicationContext(), AndroidCameraApi.class));
     }
 }
 
