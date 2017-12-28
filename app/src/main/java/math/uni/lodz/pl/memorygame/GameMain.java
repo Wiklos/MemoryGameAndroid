@@ -17,87 +17,124 @@ public class GameMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_main);
 
+        //database
+        SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
+        Cursor k = db.getAll();
+
         ImageView mImageView;
         String path;
-        //1
-        /*
+        int j=0;
+        while(k.moveToNext()) {
+            j++;
+            //1
+            if(j==1)
+            {
+                mImageView = findViewById(R.id.imageView);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
 
-         */
-        mImageView = findViewById(R.id.imageView);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Noga"+ "/pic1.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        //2
-        mImageView = findViewById(R.id.imageView2);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Noga"+ "/pic2.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        //3
-        mImageView = findViewById(R.id.imageView3);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Reka"+ "/pic1.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        //4
-        mImageView = findViewById(R.id.imageView4);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Reka"+ "/pic2.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        //5
-        mImageView = findViewById(R.id.imageView5);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Krzeslo"+ "/pic1.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        //6
-        mImageView = findViewById(R.id.imageView6);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Krzeslo"+ "/pic2.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            //2
+            if(j==2)
+            {
+                mImageView = findViewById(R.id.imageView2);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
+            //3
+            if(j==3)
+            {
+                mImageView = findViewById(R.id.imageView3);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
+            //4
+            if(j==4)
+            {
+                mImageView = findViewById(R.id.imageView4);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
+            //5
+            if(j==5)
+            {
+                mImageView = findViewById(R.id.imageView5);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
+            //6
+            if(j==6)
+            {
+                mImageView = findViewById(R.id.imageView6);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
 
-        //7
-        mImageView = findViewById(R.id.imageView7);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Sciana"+ "/pic1.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        //8
-        mImageView = findViewById(R.id.imageView8);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Sciana"+ "/pic2.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            //7
+            if(j==7)
+            {
+                mImageView = findViewById(R.id.imageView7);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
+            //8
+            if(j==8)
+            {
+                mImageView = findViewById(R.id.imageView8);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
 
-        //9
-        mImageView = findViewById(R.id.imageView9);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Komputer"+ "/pic1.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        //10
-        mImageView = findViewById(R.id.imageView10);
-        path =( Environment.getExternalStorageDirectory() +
-                File.separator + "MemoryGamePictures" + File.separator +"Komputer"+ "/pic2.jpg");
-        mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-
+            //9
+            if(j==9)
+            {
+                mImageView = findViewById(R.id.imageView9);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
+            //10
+            if(j==10)
+            {
+                mImageView = findViewById(R.id.imageView10);
+                String nr = k.getString(2);
+                path = nr;
+                mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+            }
+            if(j==10)break;
+        }
+        j=0;
 
         //baza danych
         TextView tv = (TextView)findViewById(R.id.textView2);
 
-        SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
+        //SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
         /*
         for(int i=0;i<10;i++)
         {
             db.add("tempCategory","TempPath");
         }
         */
-        Cursor k = db.getAll();
-        int j=0;
-        while(k.moveToNext())
+        Cursor p = db.getAll();
+        int y=0;
+        while(p.moveToNext())
         {
-            j++;
-            int id = k.getInt(0);
-            String tytul = k.getString(1);
-            String nr = k.getString(2);
-            tv.setText(tv.getText()+"\n"+"ID:"+id+" Tytul:"+tytul+" "+"Nr:"+nr);
-            if(j==10)break;
+            y++;
+            int id = p.getInt(0);
+            String tytul = p.getString(1);
+            String nr = p.getString(2);
+            tv.setText(tv.getText()+"\n"+"ID:"+id+" Category:"+tytul+" "+"Path:"+nr);
+            if(y==10)break;
         }
-        j=0;
+        y=0;
 
 
     }
