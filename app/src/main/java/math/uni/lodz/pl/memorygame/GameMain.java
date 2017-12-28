@@ -80,11 +80,12 @@ public class GameMain extends AppCompatActivity {
         TextView tv = (TextView)findViewById(R.id.textView2);
 
         SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
+        /*
         for(int i=0;i<10;i++)
         {
             db.add("tempCategory","TempPath");
         }
-
+        */
         Cursor k = db.getAll();
         int j=0;
         while(k.moveToNext())

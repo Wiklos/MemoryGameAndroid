@@ -174,12 +174,15 @@ public class AndroidCameraApi extends AppCompatActivity {
             int rotation = getWindowManager().getDefaultDisplay().getRotation();
             captureBuilder.set(CaptureRequest.JPEG_ORIENTATION, ORIENTATIONS.get(rotation));
             //creating new directory called Noga
+            //database
+            SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
 
             //AutoCompleteTextView filenameFromTextView = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
             //String filename = String.valueOf(filenameFromTextView.getEditableText());
 
             //String filename = getIntent().getStringExtra("FIRST_C");
             String filename = getIntent().getStringExtra("CATEGORY");
+            int number = getIntent().getIntExtra("number",1);
 
             String filenameMain = "MemoryGamePictures";
             //String filename = "Noga";
@@ -199,6 +202,8 @@ public class AndroidCameraApi extends AppCompatActivity {
             if(FirstOrSecondPicText.equals(FirstText.toString()))
             {
                 nazwa = "/pic1.jpg";
+                db.update(number,filename,Environment.getExternalStorageDirectory() +
+                        File.separator + filenameMain + File.separator + filename + "/pic1.jpg");
                 //Toast.makeText(getApplication(),nazwa, Toast.LENGTH_SHORT).show();
                 //final File file = new File(folder+"/pic.jpg");
             }
@@ -206,11 +211,16 @@ public class AndroidCameraApi extends AppCompatActivity {
             else
             {
                 nazwa = "/pic2.jpg";
+                db.update(number,filename,Environment.getExternalStorageDirectory() +
+                        File.separator + filenameMain + File.separator + filename + "/pic2.jpg");
                 //Toast.makeText(getApplication(),nazwa, Toast.LENGTH_SHORT).show();
                 //final File file = new File(folder+"/pic2.jpg");
             }
 
             final File file = new File(folder+nazwa);
+
+            //database saving
+
             //final File file = new File(Environment.getExternalStorageDirectory()+"/pic.jpg");
             ImageReader.OnImageAvailableListener readerListener = new ImageReader.OnImageAvailableListener() {
                 @Override

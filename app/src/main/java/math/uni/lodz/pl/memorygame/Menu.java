@@ -79,6 +79,8 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "first";
         intent.putExtra("ORDER", order );
+        //int number = 1;
+        intent.putExtra("number",1);
         startActivity(intent);
     }
     public void zdjecie2(View view)
@@ -89,6 +91,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "second";
         intent.putExtra("ORDER", order );
+        intent.putExtra("number",2);
         startActivity(intent);
     }
     public void zdjecie3(View view)
@@ -99,6 +102,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "first";
         intent.putExtra("ORDER", order );
+        intent.putExtra("number",3);
         startActivity(intent);
     }
     public void zdjecie4(View view)
@@ -109,6 +113,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "second";
         intent.putExtra("ORDER", order );
+        intent.putExtra("number",4);
         startActivity(intent);
     }
     public void zdjecie5(View view)
@@ -119,6 +124,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "first";
         intent.putExtra("ORDER", order );
+        intent.putExtra("number",5);
         startActivity(intent);
     }
     public void zdjecie6(View view)
@@ -129,6 +135,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "second";
         intent.putExtra("ORDER", order );
+        intent.putExtra("number",6);
         startActivity(intent);
     }
     public void zdjecie7(View view)
@@ -139,6 +146,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "first";
         intent.putExtra("ORDER", order );
+        intent.putExtra("number",7);
         startActivity(intent);
     }
     public void zdjecie8(View view)
@@ -149,6 +157,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "second";
         intent.putExtra("ORDER", order );
+        intent.putExtra("number",8);
 
         startActivity(intent);
     }
@@ -160,6 +169,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "first";
         intent.putExtra("ORDER", order );
+        intent.putExtra("number",9);
         startActivity(intent);
     }
     public void zdjecie10(View view)
@@ -170,6 +180,7 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("CATEGORY", stringCategory );
         String order = "second";
         intent.putExtra("ORDER", order );
+        intent.putExtra("number",10);
         startActivity(intent);
     }
 
