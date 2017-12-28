@@ -19,6 +19,8 @@ public class GameMain extends AppCompatActivity {
         String path;
         //1
         /*
+
+         */
         mImageView = findViewById(R.id.imageView);
         path =( Environment.getExternalStorageDirectory() +
                 File.separator + "MemoryGamePictures" + File.separator +"Noga"+ "/pic1.jpg");
@@ -43,12 +45,13 @@ public class GameMain extends AppCompatActivity {
         path =( Environment.getExternalStorageDirectory() +
                 File.separator + "MemoryGamePictures" + File.separator +"Krzeslo"+ "/pic1.jpg");
         mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        /6
+        //6
         mImageView = findViewById(R.id.imageView6);
         path =( Environment.getExternalStorageDirectory() +
                 File.separator + "MemoryGamePictures" + File.separator +"Krzeslo"+ "/pic2.jpg");
         mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        /7
+
+        //7
         mImageView = findViewById(R.id.imageView7);
         path =( Environment.getExternalStorageDirectory() +
                 File.separator + "MemoryGamePictures" + File.separator +"Sciana"+ "/pic1.jpg");
@@ -58,7 +61,7 @@ public class GameMain extends AppCompatActivity {
         path =( Environment.getExternalStorageDirectory() +
                 File.separator + "MemoryGamePictures" + File.separator +"Sciana"+ "/pic2.jpg");
         mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
-        */
+
         //9
         mImageView = findViewById(R.id.imageView9);
         path =( Environment.getExternalStorageDirectory() +
