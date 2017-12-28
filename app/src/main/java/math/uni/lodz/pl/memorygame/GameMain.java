@@ -1,10 +1,12 @@
 package math.uni.lodz.pl.memorygame;
 
+import android.database.Cursor;
 import android.graphics.BitmapFactory;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.io.File;
 
@@ -72,6 +74,30 @@ public class GameMain extends AppCompatActivity {
         path =( Environment.getExternalStorageDirectory() +
                 File.separator + "MemoryGamePictures" + File.separator +"Komputer"+ "/pic2.jpg");
         mImageView.setImageBitmap(BitmapFactory.decodeFile(path));
+
+
+        //baza danych
+        TextView tv = (TextView)findViewById(R.id.textView2);
+
+        SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
+        for(int i=0;i<10;i++)
+        {
+            db.add("tempCategory","TempPath");
+        }
+
+        Cursor k = db.getAll();
+        int j=0;
+        while(k.moveToNext())
+        {
+            j++;
+            int id = k.getInt(0);
+            String tytul = k.getString(1);
+            String nr = k.getString(2);
+            tv.setText(tv.getText()+"\n"+"ID:"+id+" Tytul:"+tytul+" "+"Nr:"+nr);
+            if(j==10)break;
+        }
+        j=0;
+
 
     }
 }
