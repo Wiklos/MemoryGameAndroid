@@ -95,91 +95,91 @@ public class GameMain2 extends AppCompatActivity {
         if (swap1) {
             //i.setImageBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() +
             //        File.separator + "MemoryGamePictures" + File.separator + "Noga" + "/pic1.jpg"));
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path1));
             swap1 = false;
         } else {
             swap1 = true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path1));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
     public void change2(View view) {
         ImageButton i = (ImageButton) findViewById(R.id.imageButton2);
         if (swap2) {
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path2));
             swap2 = false;
         } else {
             swap2 = true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path2));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
     public  void change3(View view) {
         ImageButton i = (ImageButton) findViewById(R.id.imageButton3);
         if (swap3) {
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path3));
             swap3 = false;
         } else {
             swap3 = true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path3));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
     public  void change4(View view) {
         ImageButton i = (ImageButton) findViewById(R.id.imageButton4);
         if (swap4) {
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path4));
             swap4 = false;
         } else {
             swap4 = true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path4));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
     public  void change5(View view) {
         ImageButton i = (ImageButton) findViewById(R.id.imageButton5);
         if (swap5) {
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path5));
             swap5 = false;
         } else {
             swap5 = true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path5));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
     public  void change6(View view) {
         ImageButton i = (ImageButton) findViewById(R.id.imageButton6);
         if (swap6) {
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path6));
             swap6 = false;
         } else {
             swap6 = true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path6));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
     public  void change7(View view) {
         ImageButton i = (ImageButton) findViewById(R.id.imageButton7);
         if (swap7) {
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path7));
             swap7 = false;
         } else {
             swap7 = true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path7));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
     public  void change8(View view) {
         ImageButton i = (ImageButton) findViewById(R.id.imageButton8);
         if (swap8) {
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path8));
             swap8 = false;
         } else {
             swap8 = true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path8));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
     public  void change9(View view) {
         ImageButton i = (ImageButton) findViewById(R.id.imageButton9);
         if (swap9) {
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path9));
             swap9 = false;
         } else {
             swap9 = true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path9));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
     public  void change10(View view)
@@ -187,13 +187,13 @@ public class GameMain2 extends AppCompatActivity {
         ImageButton i = (ImageButton) findViewById(R.id.imageButton10);
         if (swap10)
         {
-            i.setImageResource(R.drawable.q_mark);
+            i.setImageBitmap(BitmapFactory.decodeFile(path10));
             swap10=false;
         }
         else
         {
             swap10=true;
-            i.setImageBitmap(BitmapFactory.decodeFile(path10));
+            i.setImageResource(R.drawable.q_mark);
         }
     }
 
