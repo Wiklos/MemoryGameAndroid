@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
@@ -21,6 +22,10 @@ public class GameMain2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_main2);
+
+        TextView tv = (TextView)findViewById(R.id.textView3);
+
+        tv.setText(tv.getText() +""+ GlobalCountOfTap);
 
 
 
@@ -90,20 +95,6 @@ public class GameMain2 extends AppCompatActivity {
     public boolean swap9 = true;
     public boolean swap10 = true;
 
-    public int clickCounter = 0;
-    public int tag1 = 0;
-    public int tag2 = 0;
-    public boolean gotTag1 = false;
-    public boolean clickedOnce1 = false;
-    public boolean clickedOnce2 = false;
-    public boolean clickedOnce3 = false;
-    public boolean clickedOnce4 = false;
-    public boolean clickedOnce5 = false;
-    public boolean clickedOnce6 = false;
-    public boolean clickedOnce7 = false;
-    public boolean clickedOnce8 = false;
-    public boolean clickedOnce9 = false;
-    public boolean clickedOnce10 = false;
 
     public boolean matched1 = false;
     public boolean matched2 = false;
@@ -111,380 +102,727 @@ public class GameMain2 extends AppCompatActivity {
     public boolean matched4 = false;
     public boolean matched5 = false;
 
+    //nowe
+    public int clickCount = 0;
+    public int firstClicked = 0;
+    public int secondClicked = 0;
+
+
+    public int GlobalCountOfTap = 0;
+
+
     public  void change1(View view) {
-        if(!matched1) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton);
-                if (swap1) {
-                    //i.setImageBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() +
-                    //        File.separator + "MemoryGamePictures" + File.separator + "Noga" + "/pic1.jpg"));
+        if(!matched1)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton);
+            if (swap1 || clickCount>2)
+            {
+                //i.setImageBitmap(BitmapFactory.decodeFile(Environment.getExternalStorageDirectory() +
+                //        File.separator + "MemoryGamePictures" + File.separator + "Noga" + "/pic1.jpg"));
+                if(clickCount==1)
+                {
                     i.setImageBitmap(BitmapFactory.decodeFile(path1));
                     swap1 = false;
-                } else {
-                    swap1 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 1;
-                    gotTag1 = true;
-                    clickedOnce1 = true;
-                }
 
-            }
-            if (clickCounter == 2) {
-                tag2 = 1;
-                if (tag1 == tag2) {
-                    if (!clickedOnce1) {
+                    secondClicked = 1;
+                    clickCount++;
+                    if((firstClicked==1 && secondClicked==2)||(firstClicked==2 && secondClicked==1))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched1 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched1 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path1));
+                    swap1 = false;
 
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce1 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce1 = false;
+                    firstClicked = 1;
+                    clickCount++;
                 }
             }
+            else
+            {
+                swap1 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
 
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==1)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==1)
+                {
+                    firstClicked = 0;
+                }
+                Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
     }
     public  void change2(View view) {
-        if(!matched1) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton2);
-                if (swap2) {
+        if(!matched1)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton2);
+            if (swap2 || clickCount>2)
+            {
+                if(clickCount==1)
+                {
                     i.setImageBitmap(BitmapFactory.decodeFile(path2));
                     swap2 = false;
-                } else {
-                    swap2 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 1;
-                    gotTag1 = true;
-                    clickedOnce2 = true;
-                }
-            }
-            if (clickCounter == 2) {
-                tag2 = 1;
-                if (tag1 == tag2) {
-                    if (!clickedOnce2) {
+
+                    secondClicked = 2;
+                    clickCount++;
+                    if((firstClicked==1 && secondClicked==2)||(firstClicked==2 && secondClicked==1))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched1 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce2 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce2 = false;
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched1 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path2));
+                    swap2 = false;
+
+                    firstClicked = 2;
+                    clickCount++;
                 }
             }
+            else
+            {
+                swap2 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
+
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==2)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==2)
+                {
+                    firstClicked = 0;
+                }
+                Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
     }
+
     public  void change3(View view) {
-        if(!matched2) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton3);
-                if (swap3) {
+        if(!matched2)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton3);
+            if (swap3 || clickCount>2)
+            {
+                if(clickCount==1)
+                {
                     i.setImageBitmap(BitmapFactory.decodeFile(path3));
                     swap3 = false;
-                } else {
-                    swap3 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 2;
-                    gotTag1 = true;
-                    clickedOnce3 = true;
-                }
-            }
-            if (clickCounter == 2) {
-                tag2 = 2;
-                if (tag1 == tag2) {
-                    if (!clickedOnce3) {
+
+                    secondClicked = 3;
+                    clickCount++;
+                    if((firstClicked==3 && secondClicked==4)||(firstClicked==4 && secondClicked==3))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched2 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce3 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce3 = false;
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched2 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path3));
+                    swap3 = false;
+
+                    firstClicked = 3;
+                    clickCount++;
                 }
             }
+            else
+            {
+                swap3 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
+
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==3)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==3)
+                {
+                    firstClicked = 0;
+                }
+                Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
     }
     public  void change4(View view) {
-        if(!matched2) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton4);
-                if (swap4) {
+        if(!matched2)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton4);
+            if (swap4 || clickCount>2)
+            {
+                if(clickCount==1)
+                {
                     i.setImageBitmap(BitmapFactory.decodeFile(path4));
                     swap4 = false;
-                } else {
-                    swap4 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 2;
-                    gotTag1 = true;
-                    clickedOnce4 = true;
-                }
-            }
-            if (clickCounter == 2) {
-                tag2 = 2;
-                if (tag1 == tag2) {
-                    if (!clickedOnce4) {
+
+                    secondClicked = 4;
+                    clickCount++;
+                    if((firstClicked==3 && secondClicked==4)||(firstClicked==4 && secondClicked==3))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched2 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce4 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce4 = false;
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched2 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path4));
+                    swap4 = false;
+
+                    firstClicked = 4;
+                    clickCount++;
                 }
             }
+            else
+            {
+                swap4 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
+
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==4)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==4)
+                {
+                    firstClicked = 0;
+                }
+
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
     }
     public  void change5(View view) {
-        if(!matched3) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton5);
-                if (swap5) {
+        if(!matched3)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton5);
+            if (swap5 || clickCount>2)
+            {
+                if(clickCount==1)
+                {
                     i.setImageBitmap(BitmapFactory.decodeFile(path5));
                     swap5 = false;
-                } else {
-                    swap5 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 3;
-                    gotTag1 = true;
-                    clickedOnce5 = true;
-                }
-            }
-            if (clickCounter == 2) {
-                tag2 = 3;
-                if (tag1 == tag2) {
-                    if (!clickedOnce5) {
+
+                    secondClicked = 5;
+                    clickCount++;
+                    if((firstClicked==5 && secondClicked==6)||(firstClicked==6 && secondClicked==5))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched3 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce5 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce5 = false;
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched3 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path5));
+                    swap5 = false;
+
+                    firstClicked = 5;
+                    clickCount++;
                 }
             }
+            else
+            {
+                swap5 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
+
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==5)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==5)
+                {
+                    firstClicked = 0;
+                }
+
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
     }
     public  void change6(View view) {
-        if(!matched3) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton6);
-                if (swap6) {
+        if(!matched3)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton6);
+            if (swap6 || clickCount>2)
+            {
+                if(clickCount==1)
+                {
                     i.setImageBitmap(BitmapFactory.decodeFile(path6));
                     swap6 = false;
-                } else {
-                    swap6 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 3;
-                    gotTag1 = true;
-                    clickedOnce6 = true;
-                }
-            }
-            if (clickCounter == 2) {
-                tag2 = 3;
-                if (tag1 == tag2) {
-                    if (!clickedOnce6) {
+
+                    secondClicked = 6;
+                    clickCount++;
+                    if((firstClicked==5 && secondClicked==6)||(firstClicked==6 && secondClicked==5))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched3 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce6 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce6 = false;
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched3 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path6));
+                    swap6 = false;
+
+                    firstClicked = 6;
+                    clickCount++;
                 }
             }
+            else
+            {
+                swap6 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
+
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==6)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==6)
+                {
+                    firstClicked = 0;
+                }
+
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
     }
     public  void change7(View view) {
-        if(!matched4) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton7);
-                if (swap7) {
+        if(!matched4)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton7);
+            if (swap7 || clickCount>2)
+            {
+                if(clickCount==1)
+                {
                     i.setImageBitmap(BitmapFactory.decodeFile(path7));
                     swap7 = false;
-                } else {
-                    swap7 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 4;
-                    gotTag1 = true;
-                    clickedOnce7 = true;
-                }
-            }
-            if (clickCounter == 2) {
-                tag2 = 4;
-                if (tag1 == tag2) {
-                    if (!clickedOnce7) {
+
+                    secondClicked = 7;
+                    clickCount++;
+                    if((firstClicked==7 && secondClicked==8)||(firstClicked==8 && secondClicked==7))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched4 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce7 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce7 = false;
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched4 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path7));
+                    swap7 = false;
+
+                    firstClicked = 7;
+                    clickCount++;
                 }
             }
+            else
+            {
+                swap7 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
+
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==7)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==7)
+                {
+                    firstClicked = 0;
+                }
+
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
     }
     public  void change8(View view) {
-        if(!matched4) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton8);
-                if (swap8) {
-                    i.setImageBitmap(BitmapFactory.decodeFile(path2));
+        if(!matched4)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton8);
+            if (swap8 || clickCount>2)
+            {
+                if(clickCount==1)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path8));
                     swap8 = false;
-                } else {
-                    swap8 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 4;
-                    gotTag1 = true;
-                    clickedOnce8 = true;
-                }
-            }
-            if (clickCounter == 2) {
-                tag2 = 4;
-                if (tag1 == tag2) {
-                    if (!clickedOnce8) {
+
+                    secondClicked = 8;
+                    clickCount++;
+                    if((firstClicked==7 && secondClicked==8)||(firstClicked==8 && secondClicked==7))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched4 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce8 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce8 = false;
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched4 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path8));
+                    swap8 = false;
+
+                    firstClicked = 8;
+                    clickCount++;
                 }
             }
+            else
+            {
+                swap8 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
+
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==8)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==8)
+                {
+                    firstClicked = 0;
+                }
+
+
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
     }
     public  void change9(View view) {
-        if(!matched5) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton9);
-                if (swap9) {
+        if(!matched5)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton9);
+            if (swap9 || clickCount>2)
+            {
+                if(clickCount==1)
+                {
                     i.setImageBitmap(BitmapFactory.decodeFile(path9));
                     swap9 = false;
-                } else {
-                    swap9 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 5;
-                    gotTag1 = true;
-                    clickedOnce9 = true;
-                }
-            }
-            if (clickCounter == 2) {
-                tag2 = 5;
-                if (tag1 == tag2) {
-                    if (!clickedOnce9) {
+
+                    secondClicked = 9;
+                    clickCount++;
+                    if((firstClicked==9 && secondClicked==10)||(firstClicked==10 && secondClicked==9))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched5 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce9 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce9 = false;
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched5 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path9));
+                    swap9 = false;
+
+                    firstClicked = 9;
+                    clickCount++;
                 }
             }
+            else
+            {
+                swap9 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
+
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==9)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==9)
+                {
+                    firstClicked = 0;
+                }
+
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
     }
     public  void change10(View view) {
-        if(!matched5) {
-            if (clickCounter == 0 || clickCounter == 1) {
-                ImageButton i = (ImageButton) findViewById(R.id.imageButton10);
-                if (swap10) {
+        if(!matched5)
+        {
+            TextView tv = (TextView)findViewById(R.id.textView3);
+            GlobalCountOfTap++;
+            tv.setText("Taps:"+ GlobalCountOfTap);
+            //Toast.makeText(getApplication(), "!!!", Toast.LENGTH_SHORT).show();
+            ImageButton i = (ImageButton) findViewById(R.id.imageButton10);
+            if (swap10 || clickCount>2)
+            {
+                if(clickCount==1)
+                {
                     i.setImageBitmap(BitmapFactory.decodeFile(path10));
                     swap10 = false;
-                } else {
-                    swap10 = true;
-                    i.setImageResource(R.drawable.q_mark);
-                }
-                clickCounter++;
-                if (!gotTag1) {
-                    tag1 = 5;
-                    gotTag1 = true;
-                    clickedOnce10 = true;
-                }
-            }
-            if (clickCounter == 2) {
-                tag2 = 5;
-                if (tag1 == tag2) {
-                    if (!clickedOnce10) {
+
+                    secondClicked = 10;
+                    clickCount++;
+                    if((firstClicked==9 && secondClicked==10)||(firstClicked==10 && secondClicked==9))
+                    {
                         Toast.makeText(getApplication(), "Its a match!", Toast.LENGTH_SHORT).show();
                         matched5 = true;
+                        clickCount = 0;
+                        firstClicked = 0;
+                        secondClicked = 0;
+                        if(matched1 && matched2 && matched3 && matched4 && matched5)
+                        {
+                            Win();
+                        }
                     }
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce10 = false;
-                } else {
-                    Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
-                    clickCounter = 0;
-                    gotTag1 = false;
-                    clickedOnce10 = false;
+                    else
+                    {
+                        Toast.makeText(getApplication(), "Try again!", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                if(clickCount==0 && matched5 == false)
+                {
+                    i.setImageBitmap(BitmapFactory.decodeFile(path10));
+                    swap10 = false;
+
+                    firstClicked = 10;
+                    clickCount++;
                 }
             }
+            else
+            {
+                Toast.makeText(getApplication(), "!!!1", Toast.LENGTH_SHORT).show();
+                swap10 = true;
+                i.setImageResource(R.drawable.q_mark);
+                clickCount--;
+
+                if(secondClicked!=0)
+                {
+                    if(secondClicked==10)
+                    {
+                        secondClicked=0;
+                    }
+                    else
+                    {
+                        firstClicked = secondClicked;
+                        secondClicked = 0;
+                    }
+                }
+                else if(firstClicked==10)
+                {
+                    firstClicked = 0;
+                }
+
+            }
+            TextView tv2 = (TextView)findViewById(R.id.textView4);
+            tv2.setText("("+firstClicked+","+secondClicked+")");
         }
+    }
+
+    public void Win()
+    {
+        TextView tv3 = (TextView)findViewById(R.id.textView5);
+        tv3.setText("You Win!");
     }
 
 
