@@ -33,6 +33,7 @@ public class GameMain2 extends AppCompatActivity {
     SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
     Cursor k = db.getAll();
 
+
     int j=0;
         while(k.moveToNext())
     {
@@ -80,6 +81,7 @@ public class GameMain2 extends AppCompatActivity {
         }
         if(j==10)break;
     }
+    k.close();
 
     }
 

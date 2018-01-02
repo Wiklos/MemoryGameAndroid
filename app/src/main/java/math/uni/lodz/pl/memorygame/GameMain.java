@@ -116,6 +116,7 @@ public class GameMain extends AppCompatActivity {
             if(j==10)break;
         }
         j=0;
+        k.close();
 
         //baza danych
         TextView tv = (TextView)findViewById(R.id.textView2);
@@ -124,7 +125,7 @@ public class GameMain extends AppCompatActivity {
 
         for(int i=0;i<10;i++)
         {
-            db.add("tempCategory","TempPath");
+           // db.add("tempCategory","TempPath");
         }
 
 
@@ -141,6 +142,8 @@ public class GameMain extends AppCompatActivity {
             tv.setText(tv.getText()+"\n"+"ID:"+id+" Category:"+tytul+" "+"Path:"+nr);
             if(y==10)break;
         }
+
+        p.close();
         y=0;
 
 
