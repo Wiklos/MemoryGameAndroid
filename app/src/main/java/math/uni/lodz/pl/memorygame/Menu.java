@@ -183,6 +183,17 @@ public class Menu extends AppCompatActivity {
         intent.putExtra("number",10);
         startActivity(intent);
     }
+    public void DeleteClick(View view)
+    {
+        SimpleDatabaseHelper db = new SimpleDatabaseHelper(this);
+
+        for(int i=0;i<11;i++)
+        {
+            db.update(i,"TempCategory","TempPath");
+            Toast.makeText(getApplication(), "Database cleared", Toast.LENGTH_SHORT).show();
+        }
+
+    }
 
 
 }

@@ -117,7 +117,7 @@ public class GameMain2 extends AppCompatActivity {
             TextView tv = (TextView)findViewById(R.id.textView3);
             GlobalCountOfTap++;
             tv.setText("Taps:"+ GlobalCountOfTap);
-            Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
             ImageButton i = (ImageButton) findViewById(R.id.imageButton);
             if (swap1 || clickCount>2)
             {
@@ -178,7 +178,7 @@ public class GameMain2 extends AppCompatActivity {
                 {
                     firstClicked = 0;
                 }
-                Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+               // Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
             tv2.setText("("+firstClicked+","+secondClicked+")");
@@ -248,7 +248,7 @@ public class GameMain2 extends AppCompatActivity {
                 {
                     firstClicked = 0;
                 }
-                Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
             tv2.setText("("+firstClicked+","+secondClicked+")");
@@ -319,7 +319,7 @@ public class GameMain2 extends AppCompatActivity {
                 {
                     firstClicked = 0;
                 }
-                Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplication(), "Checl:"+firstClicked+" "+secondClicked, Toast.LENGTH_SHORT).show();
             }
             TextView tv2 = (TextView)findViewById(R.id.textView4);
             tv2.setText("("+firstClicked+","+secondClicked+")");
@@ -791,7 +791,7 @@ public class GameMain2 extends AppCompatActivity {
             }
             else
             {
-                Toast.makeText(getApplication(), "!!!1", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplication(), "!!!1", Toast.LENGTH_SHORT).show();
                 swap10 = true;
                 i.setImageResource(R.drawable.q_mark);
                 clickCount--;
