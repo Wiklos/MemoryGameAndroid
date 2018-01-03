@@ -30,9 +30,8 @@
         </activity>
         <activity android:name=".GameMain" />
         <activity android:name=".AndroidCameraApi" />
-        <activity android:name=".GameMain2">
-
-        </activity>
+        <activity android:name=".GameMain2"></activity>
+        <activity android:name=".GameMain3"></activity>
     </application>
 
 </manifest>

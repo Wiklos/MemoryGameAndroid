@@ -150,6 +150,6 @@ public class GameMain extends AppCompatActivity {
     }
     public void gotoGame2Activity(View view)
     {
-        startActivity(new Intent(getApplicationContext(), GameMain2.class));
+        startActivity(new Intent(getApplicationContext(), GameMain3.class));
     }
 }
